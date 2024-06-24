@@ -467,13 +467,10 @@ def upload_part_datasheet(datasheet_url: str, part_id: int) -> str:
     global inventree_api
 
     # Get attachment full path
-    datasheet_name = f'{os.path.basename(datasheet_url)}'
-    # inventree needs .pdf at the end of filename to recognize a PDF
-    if not datasheet_name.lower().endswith('.pdf'):
-        datasheet_name += '.pdf'
+    datasheet_name = f'{part_id}_datasheet.pdf'
     datasheet_location = settings.search_datasheets + datasheet_name
 
-    # Download image (multiple attempts)
+    # Download datasheet (multiple attempts)
     if not download_with_retry(datasheet_url,
                                datasheet_location,
                                filetype='PDF',
