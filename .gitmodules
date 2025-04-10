@@ -1,0 +1,3 @@
+[submodule "submodules/digikey-api"]
+	path = submodules/digikey-api
+	url = https://github.com/hurricaneJoef/digikey-api.git
